@@ -32,9 +32,16 @@ main {
     padding: 10px;
 }
 
-.product {
+.product, .product-detail {
     padding: 5px;
     border: 20px white solid;
+    display: flex;
+    flex-direction: column;  
+}
+
+.product-detail p {
+    width: 250px;
+    text-align: left;
 }
 
 
@@ -56,3 +63,32 @@ nav a:hover, .product-name:hover {
 .product-name {
     text-decoration: underline; 
 }
+
+select {
+    width: 210px;
+}
+
+.price {
+    font-weight: bold;
+    padding: 10px;
+    width: 200px;
+}
+
+.price span {
+    text-align: center;
+    padding: 5px;
+    float: left;
+}
+
+.add-button {
+    border: 3px black solid;
+    background-color: white;
+    font-weight: bold;
+    padding: 5px;
+    width: 100px;
+    float: right;
+}
+
+.add-button:hover {
+    background-color: yellow; 
+  }
