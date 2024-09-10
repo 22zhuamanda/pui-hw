@@ -68,8 +68,8 @@ main {
     text-align: left;
 }
 
-/* highlight product and nav item when hovered */
-.product:hover, nav a:hover {
+/* highlight product and nav item when hovered or on page */
+.product:hover, nav a:hover, nav a.active {
     background-color: yellow;
 }
 
