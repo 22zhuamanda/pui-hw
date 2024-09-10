@@ -7,12 +7,14 @@
   </head>
   
   <body>
+    <!-- logo in header -->
     <header>
       <a href="index.html">
         <img class="logo" src="../assets/logo/logo-01.svg" alt="Logo">
       </a>
     </header>
 
+    <!-- nav links to other pages -->
     <nav>
       <a href="./index.html">PRODUCTS</a>
       <br>
@@ -20,41 +22,44 @@
     </nav>
 
     <main>
+      <!-- title -->
       <h1>Original cinnamon roll</h1>
-     
-            <img class="product-image" src="../assets/products/original-cinnamon-roll.jpg" alt="Original cinnamon roll"/>
-            <div class="product-detail">
-            <p>Customize our delicious, hand-made cinnamon roll to your liking!</p>
-            
-            <label>Glazing:</label>
-            <select name="glazing">
-                <option value="keep-original">Keep original</option>
-                <option value="sugar-milk">Sugar milk</option>
-                <option value="vanilla-milk">Vanilla milk</option>
-                <option value="double-chocolate">Double chocolate</option>
-            </select>
 
-            <br><br>
+      <!-- image of product -->
+      <img class="product-detail-image" src="../assets/products/original-cinnamon-roll.jpg" alt="Original cinnamon roll"/>
+      
+      <!-- details of product -->
+      <div class="product-detail">
+        <!-- description -->
+        <p>Customize our delicious, hand-made cinnamon roll to your liking!</p>
+        <!-- glazing dropdown -->
+        <p>Glazing:</p>
+        <select name="glazing">
+            <option value="keep-original">Keep original</option>
+            <option value="sugar-milk">Sugar milk</option>
+            <option value="vanilla-milk">Vanilla milk</option>
+            <option value="double-chocolate">Double chocolate</option>
+        </select>
 
-            <label>Pack size:</label>
-            <select name="pack">
-                <option value="1">1</option>
-                <option value="3">3</option>
-                <option value="6">6</option>
-                <option value="12">12</option>
-            </select>
+        <br><br>
 
-            <br><br>
+        <!-- pack size dropdown -->
+        <p>Pack size:</p>
+        <select name="pack">
+            <option value="1">1</option>
+            <option value="3">3</option>
+            <option value="6">6</option>
+            <option value="12">12</option>
+        </select>
 
-            <div class="price">
-              <span>$2.49</span>
-              <button class="add-button">Add to Cart</button>
-            </div>
+        <br><br>
+
+        <!-- price and add to cart button -->
+        <div class="price">
+          <p>$2.49</p>
+          <button class="button">Add to Cart</button>
         </div>
       </div>
     </main>
-
-    
-
   </body>
 </html>
