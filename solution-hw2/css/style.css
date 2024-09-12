@@ -1,0 +1,149 @@
+/* set default text color to black and no underline */
+* {
+    color: black;
+    text-decoration: none;
+}
+
+/* set h1 font size to 42px and unbold */
+h1 {
+    font-size: 48px;
+    font-weight: normal;
+}
+
+/* set p font size to 32px */
+p {
+    font-size: 32px;
+}
+
+/* draw divider at bottom of header */
+header {
+    border-bottom: 5px black solid;
+}
+
+/* logo size */
+.logo {
+    width: 400px;
+    padding: 30px;
+}
+
+/* styling for nav layout */
+nav {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 40px;
+    font-size: 32px;
+}
+
+/* styling for nav items */
+nav a {
+    padding: 5px;
+    margin: auto;
+}
+
+/* styling for layout of all pages */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+/* styling for individual products on all pages */
+.product, .product-detail, .cart-product {
+    padding: 5px;
+    border: 20px white solid;
+    display: flex;
+    flex-direction: column;  
+}
+
+/* set width of product detail div */
+.product-detail {
+    width: 380px;
+}
+
+/* stylng for text and dropdowns in product detail */
+.product-detail p {
+    text-align: left;
+}
+
+/* highlight product and nav item when hovered or on page */
+.product:hover, nav a:hover, nav a.active {
+    background-color: yellow;
+}
+
+/* bold product name and nav item when hovered and remove label */
+.product:hover .product-name, nav a:hover, .remove-from-cart {
+    font-weight: bold;
+}
+
+/* gallery image size and border */
+.product-image {
+    width: 400px;
+    border: 3px black solid;
+}
+
+/* detail image size and border */
+.product-detail-image {
+    width: 600px;
+    border: 3px black solid;
+}
+
+/* underline product name in gallery and remove in cart */
+.product-name, .remove-from-cart {
+    text-decoration: underline; 
+}
+
+/* set font size for remove */
+.remove-from-cart {
+    font-size: 16px;
+}
+
+/* styling for dropdown */
+select {
+    width: 380px;
+    font-size: 32px;
+}
+
+/* styling for bottom of product details page - price and button */
+.price {
+    font-weight: bold;
+    padding: 10px;
+    display: flex;
+}
+
+/* styling for add to cart and checkout buttons */
+.button {
+    border: 3px black solid;
+    background-color: white;
+    font-size: 32px;
+    font-weight: bold;
+    padding: 5px;
+    width: 200px;
+    margin: auto;
+}
+
+/* add to cart and checkout buttons turn yellow when hovered */
+.button:hover {
+    background-color: yellow; 
+}
+
+
+/* align cart and total in center */
+.cart-product, .cart-name, .total {
+    align-items: center;
+    text-align: center;
+}
+
+/* cart image size and border */
+.cart-image {
+    width: 200px;
+    border: 3px black solid;
+}
+
+/* draw divider in cart */
+.divider {
+    border: 3px black solid;
+    width: 1000px;
+}
