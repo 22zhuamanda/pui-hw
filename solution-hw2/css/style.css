@@ -2,22 +2,29 @@
 * {
     color: black;
     text-decoration: none;
+    font-family: Helvetica;
 }
 
 /* set h1 font size to 42px and unbold */
 h1 {
-    font-size: 48px;
+    font-size: 36px;
     font-weight: normal;
+    top: 17%;
+    left: 38%;
+    position: absolute;
 }
 
 /* set p font size to 32px */
 p {
-    font-size: 32px;
+    font-size: 24px;
 }
 
-/* draw divider at bottom of header */
-header {
-    border-bottom: 5px black solid;
+.line {
+    left: 38%;
+    right: 0;
+    top: 13%;
+    border-bottom: 5px solid black;
+    position: absolute;
 }
 
 /* logo size */
@@ -28,12 +35,15 @@ header {
 
 /* styling for nav layout */
 nav {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 40px;
-    font-size: 32px;
+    width: 400px;
+    display: flex; /* Make the nav items appear horizontally */
+    justify-content: space-around; /* Space the items evenly */
+    align-items: center; /* Align items vertically */
+    padding: 5px;
+    position: absolute;
+    top: 5%; /* Position the nav above the line */
+    right: 3%;
+    font-size: 24px;
 }
 
 /* styling for nav items */
@@ -48,6 +58,13 @@ main {
     flex-direction: column;
     align-items: center;
     padding: 10px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 90%;
 }
 
 /* styling for individual products on all pages */
@@ -73,14 +90,14 @@ main {
     background-color: yellow;
 }
 
-/* bold product name and nav item when hovered and remove label */
-.product:hover .product-name, nav a:hover, .remove-from-cart {
+/* bold product name and nav item when hovered/on page and remove label */
+.product:hover .product-name, nav a:hover, .remove-from-cart, nav a.active {
     font-weight: bold;
 }
 
 /* gallery image size and border */
 .product-image {
-    width: 400px;
+    width: 285px;
     border: 3px black solid;
 }
 
