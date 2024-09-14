@@ -77,7 +77,11 @@ main {
 
 /* set width of product detail div */
 .product-detail {
-    width: 380px;
+    width: 350px;
+    height: 540px;
+    right: 3%;
+    top: 35%;
+    position: absolute;
 }
 
 /* stylng for text and dropdowns in product detail */
@@ -105,6 +109,9 @@ main {
 .product-detail-image {
     width: 600px;
     border: 3px black solid;
+    left: 10%;
+    top: 35%;
+    position: absolute;
 }
 
 /* underline product name in gallery and remove in cart */
@@ -119,26 +126,32 @@ main {
 
 /* styling for dropdown */
 select {
-    width: 380px;
-    font-size: 32px;
+    width: 350px;
+    height: 50px;
+    font-size: 24px;
 }
 
 /* styling for bottom of product details page - price and button */
 .price {
     font-weight: bold;
-    padding: 10px;
     display: flex;
+    width: 325px;
+    right: 0;
+    bottom: 0%;
+    position: absolute;
 }
 
 /* styling for add to cart and checkout buttons */
 .button {
     border: 3px black solid;
     background-color: white;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: bold;
     padding: 5px;
     width: 200px;
     margin: auto;
+    align-items: center;
+    margin-right: 0;
 }
 
 /* add to cart and checkout buttons turn yellow when hovered */
