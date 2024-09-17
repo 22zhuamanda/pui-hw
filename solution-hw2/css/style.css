@@ -68,7 +68,7 @@ main {
 }
 
 /* styling for individual products on all pages */
-.product, .product-detail, .cart-product {
+.product, .product-detail {
     padding: 5px;
     border: 20px white solid;
     display: flex;
@@ -121,7 +121,7 @@ main {
 
 /* set font size for remove */
 .remove-from-cart {
-    font-size: 16px;
+    font-size: 24px;
 }
 
 /* styling for dropdown */
@@ -142,7 +142,7 @@ select {
 }
 
 /* styling for add to cart and checkout buttons */
-.button {
+.add-to-cart-button {
     border: 3px black solid;
     background-color: white;
     font-size: 24px;
@@ -155,15 +155,57 @@ select {
 }
 
 /* add to cart and checkout buttons turn yellow when hovered */
-.button:hover {
+.add-to-cart-button:hover, .checkout-button:hover {
     background-color: yellow; 
 }
 
+.checkout-button {
+    border: 3px black solid;
+    background-color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 5px;
+    width: 180px;
+    height: 70px;
+    margin-top: 80px;
+    float: right;
+}
+
+.cart {
+    display: block;
+    top: 30%;
+    position: absolute;
+    left: 30%;
+}
 
 /* align cart and total in center */
-.cart-product, .cart-name, .total {
-    align-items: center;
-    text-align: center;
+.cart-product {
+    display: flex;
+}
+
+.cart-name {
+    margin-left: 40px;
+    width: 360px;
+}
+
+.cost {
+    margin-left: 50px;
+    margin-top: 55px;
+    align-items: right;
+    width: 100px;
+}
+
+.cost p {
+    float: right;
+}
+
+.total {
+    display: flex;
+    flex-wrap: wrap;
+    left: 32%;
+    width: 510px;
+    position: absolute;
+    justify-content: space-between;
 }
 
 /* cart image size and border */
@@ -172,8 +214,12 @@ select {
     border: 3px black solid;
 }
 
+.image-and-remove {
+    display: block;
+}
+
 /* draw divider in cart */
 .divider {
     border: 3px black solid;
-    width: 1000px;
+    width: 750px;
 }
