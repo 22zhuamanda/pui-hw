@@ -113,6 +113,7 @@ class Roll {
 
 // add to cart function
 function addToCart() {
+    // https://stackoverflow.com/questions/5913/getting-the-text-from-a-drop-down-box
     // get selected glazing and pack size options
     const glazingOption = glazingSelect.options[glazingSelect.selectedIndex].text;
     const packSize = packSelect.options[packSelect.selectedIndex].text;
