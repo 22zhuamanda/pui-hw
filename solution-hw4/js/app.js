@@ -85,7 +85,8 @@ function updatePrice() {
     const priceElement = document.querySelector(".price p");
     priceElement.textContent = `$${finalPrice.toFixed(2)}`;
 }
-  
+
+// display on load
 populateGlazingOptions();
 populatePackOptions();
 updatePrice();
