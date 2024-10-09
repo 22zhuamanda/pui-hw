@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/rollsData.js" defer></script>
+    <script src="../solution-hw4/JS/script.js" defer></script>
+  </head>
+  
+  <body>
+    <!-- logo and divider -->
+    <a href="index.html">
+      <img class="logo" src="../assets/logo/logo-01.svg" alt="Logo">
+    </a>
+
+    <div class="line"></div>
+
+    <!-- nav links to other pages -->
+    <nav>
+      <a href="./index.html" class="active">PRODUCTS</a>
+      <br>
+      <a href="./shoppingCart.html">CART</a>
+    </nav>
+
+    <main>
+      <!-- title -->
+      <h1 id="roll-title">Original cinnamon roll</h1>
+
+      <!-- image of product -->
+      <img class="product-detail-image" src="../assets/products/original-cinnamon-roll.jpg" alt="Original cinnamon roll"/>
+      
+      <!-- details of product -->
+      <div class="product-detail">
+        <!-- description -->
+        <p>Customize our delicious, hand-made cinnamon roll to your liking!</p>
+        <!-- glazing dropdown -->
+        <p>Glazing:</p>
+        <select id="glazing" onchange="updatePrice()">
+        </select>
+
+        <br><br>
+
+        <!-- pack size dropdown -->
+        <p>Pack size:</p>
+        <select id="pack" onchange="updatePrice()">
+        </select>
+
+        <br><br>
+
+        <!-- price and add to cart button -->
+        <div class="price">
+          <p>$2.49</p>
+          <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
