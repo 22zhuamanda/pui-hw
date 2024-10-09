@@ -11,6 +11,7 @@ class Roll {
     }
 }
 
+// glazing price adjustment based on the selection
 const glazingPrices = {
     "Original": 0.00,
     "Sugar Milk": 0.00,
@@ -18,7 +19,7 @@ const glazingPrices = {
     "Double Chocolate": 1.50
 };
 
-// Pack size multipliers based on the selected size
+// pack size multipliers based on the selected size
 const packSizeMultipliers = {
     "1": 1,
     "3": 3,
@@ -26,23 +27,25 @@ const packSizeMultipliers = {
     "12": 10
 };
 
+// add roll to cart
 function addRoll(rollType, rollGlazing, packSize, rollPrice) {
     const newRoll = new Roll(rollType, rollGlazing, packSize, rollPrice);
     cart.push(newRoll);
     return newRoll;
 }
 
+// add the four rolls
 const originalRoll = addRoll("Original", "Sugar Milk", 1, 2.49);
 const walnutRoll = addRoll("Walnut", "Vanilla Milk", 12, 3.49);
 const raisinRoll = addRoll("Raisin", "Sugar Milk", 3, 2.99); 
 const appleRoll = addRoll("Apple", "Original", 3, 3.49);
 
-console.log(cart)
-
+// iterate through each roll in cart
 for (const newRoll of cart) {
     updateRoll(newRoll);
 }
 
+// update DOM with roll
 function updateRoll(newRoll) {
     const cartItemTemplate = document.querySelector('#cart-item-template');
     const cartItem = cartItemTemplate.content.cloneNode(true);
@@ -53,64 +56,66 @@ function updateRoll(newRoll) {
     cartItem.querySelector(".roll-glazing").innerText = `Glazing: ${newRoll.glazing}`;
     cartItem.querySelector(".roll-pack-size").innerText = `Pack Size: ${newRoll.size}`;
 
-     // Get glazing and pack size prices from the respective mappings
-     const glazingPrice = glazingPrices[newRoll.glazing]; // Get the glazing price adjustment
-     const packPrice = packSizeMultipliers[newRoll.size]; // Get the pack size price multiplier
+    // get glazing and pack size prices from the respective mappings
+    const glazingPrice = glazingPrices[newRoll.glazing];
+    const packPrice = packSizeMultipliers[newRoll.size];
 
-     // Calculate the final price for this item (basePrice + glazingPrice) * packPrice
-     const itemFinalPrice = (newRoll.basePrice + glazingPrice) * packPrice;
+    // calculate  final price for this item
+    const itemFinalPrice = (newRoll.basePrice + glazingPrice) * packPrice;
 
-     // Set the price in the UI
-     cartItem.querySelector('.roll-price').innerText = `$${itemFinalPrice.toFixed(2)}`;
+    // set the price in the UI
+    cartItem.querySelector('.roll-price').innerText = `$${itemFinalPrice.toFixed(2)}`;
 
-     // Add event listener for the remove button
+     // add event listener for  remove button
     const removeButton = newRoll.element = cartItem.querySelector('.cart-product').querySelector('.remove-from-cart');
     
     removeButton.addEventListener('click', () => {
         deleteRoll(newRoll);
     });
 
-     // Get the divider element
+    // get the divider element
     const divider = document.querySelector(".divider");
 
-    // Append the new item before the divider
+    // append  new item before the divider
     divider.parentNode.insertBefore(cartItem, divider);
 
-     updateTotalPrice();
-
+    // update total cart price
+    updateTotalPrice();
 }
 
+// calculate total price of cart
 function cartTotal() {
     total = 0;
 
     for (let i = 0; i < cart.length; i++){
-        // Get glazing and pack size prices from the respective mappings
-        const glazingPrice = glazingPrices[cart[i].glazing]; // Get the glazing price adjustment
-        const packPrice = packSizeMultipliers[cart[i].size]; // Get the pack size price multiplier
+        const glazingPrice = glazingPrices[cart[i].glazing];
+        const packPrice = packSizeMultipliers[cart[i].size];
         total += (cart[i].basePrice + glazingPrice) * packPrice;;
     }
 
     return total;
 }
 
+// update total price of cart in UI
 function updateTotalPrice() {
     document.querySelector(".total p:nth-of-type(2)").innerText = `$${cartTotal().toFixed(2)}`;
 }
 
+// delete roll from cart
 function deleteRoll(roll) {
     // find the cart product element that contains this roll
     const cartProductElement = roll.element.closest('.cart-product');
     
-    // Remove the entire cart product element
+    // remove the entire cart product element
     cartProductElement.remove();
     
-    // Find the index of the roll in the cart array and remove it
+    // find the index of the roll in the cart array and remove it
     const rollIndex = cart.indexOf(roll);
     if (rollIndex > -1) {
-        cart.splice(rollIndex, 1); // Remove the roll from the cart array
+        cart.splice(rollIndex, 1); // femove the roll from the cart array
     }
 
-
+    // recalculate cart total
     cartTotal()
     updateTotalPrice()
 }
