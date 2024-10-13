@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/rollsData.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  
+  <body>
+    <!-- logo and divider -->
+    <a href="index.html">
+      <img class="logo" src="../assets/logo/logo-01.svg" alt="Logo">
+    </a>
+
+    <div class="line"></div>
+
+    <!-- nav links to other pages -->
+    <nav>
+      <a href="./index.html">PRODUCTS</a>
+      <br>
+      <a href="./shoppingCart.html" class="active">CART</a>
+    </nav>
+
+    <main>
+      <!-- title -->
+      <h1>Our hand-made cinnamon rolls</h1>
+
+      <!-- shopping cart -->
+      <div class="cart">
+        <!-- Template for dynamically adding cart items -->
+        <template id="cart-item-template">
+          <div class="cart-product">
+            <div class="image-and-remove">
+              <img class="cart-image" src="" alt="Roll Image"/>
+              <button class="remove-from-cart">Remove</button>
+            </div>
+            <div class="cart-name">
+              <p class="roll-name">Roll Name</p>
+              <p class="roll-glazing">Glazing: Glazing Option</p>
+              <p class="roll-pack-size">Pack Size: 1</p>
+            </div>
+            <div class="cost">
+              <p class="roll-price">$0.00</p>
+            </div>
+          </div>
+        </template>
+
+        <!-- divider -->
+        <hr class="divider">
+
+        <!-- cart total -->
+        <div class="total">
+          <p>Total:</p>
+          <p>$29.94</p>
+        </div>
+
+        <!-- checkout button -->
+        <button class="checkout-button">Checkout</button> 
+      </div>
+    </main>
+
+  </body>
+</html>
