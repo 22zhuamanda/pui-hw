@@ -119,6 +119,3 @@ function deleteRoll(roll) {
     cartTotal()
     updateTotalPrice()
 }
-
-
-
