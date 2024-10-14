@@ -99,8 +99,8 @@ const rollImageElement = document.querySelector('.product-detail-image');
 rollImageElement.src = `../assets/products/${currentRoll.imageFile}`;
 rollImageElement.alt = `${rollType} cinnamon roll`;
 
-// create empty cart array
-let cart = [];
+// retrieve cart from local storage or create an empty one
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 // Roll class definition
 class Roll {
@@ -125,8 +125,11 @@ function addToCart() {
     // add the new roll to the cart array
     cart.push(newRoll);
 
-    // print the entire cart to the console
-    console.log(cart);
+    // save updated cart to local storage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // print the entire stored cart to the console
+    console.log(localStorage.getItem('cart'));
 }
 
 // call add to cart function when add to cart button is clicked

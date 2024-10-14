@@ -1,5 +1,5 @@
-// create empty cart array
-let cart = [];
+// create empty cart array if none exists
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 // Roll class definition
 class Roll {
@@ -13,7 +13,7 @@ class Roll {
 
 // glazing price adjustment based on the selection
 const glazingPrices = {
-    "Original": 0.00,
+    "Keep original": 0.00,
     "Sugar Milk": 0.00,
     "Vanilla Milk": 0.50,
     "Double Chocolate": 1.50
@@ -27,22 +27,11 @@ const packSizeMultipliers = {
     "12": 10
 };
 
-// add roll to cart
-function addRoll(rollType, rollGlazing, packSize, rollPrice) {
-    const newRoll = new Roll(rollType, rollGlazing, packSize, rollPrice);
-    cart.push(newRoll);
-    return newRoll;
-}
-
-// add the four rolls
-const originalRoll = addRoll("Original", "Sugar Milk", 1, 2.49);
-const walnutRoll = addRoll("Walnut", "Vanilla Milk", 12, 3.49);
-const raisinRoll = addRoll("Raisin", "Sugar Milk", 3, 2.99); 
-const appleRoll = addRoll("Apple", "Original", 3, 3.49);
-
-// iterate through each roll in cart
-for (const newRoll of cart) {
-    updateRoll(newRoll);
+// populate the cart on page load
+function loadCart() {
+    for (const roll of cart) {
+        updateRoll(roll);
+    }
 }
 
 // update DOM with roll
@@ -85,14 +74,12 @@ function updateRoll(newRoll) {
 
 // calculate total price of cart
 function cartTotal() {
-    total = 0;
-
-    for (let i = 0; i < cart.length; i++){
-        const glazingPrice = glazingPrices[cart[i].glazing];
-        const packPrice = packSizeMultipliers[cart[i].size];
-        total += (cart[i].basePrice + glazingPrice) * packPrice;;
+    let total = 0;
+    for (const roll of cart) {
+        const glazingPrice = glazingPrices[roll.glazing];
+        const packMultiplier = packSizeMultipliers[roll.size];
+        total += (roll.basePrice + glazingPrice) * packMultiplier;
     }
-
     return total;
 }
 
@@ -112,10 +99,18 @@ function deleteRoll(roll) {
     // find the index of the roll in the cart array and remove it
     const rollIndex = cart.indexOf(roll);
     if (rollIndex > -1) {
-        cart.splice(rollIndex, 1); // femove the roll from the cart array
+        cart.splice(rollIndex, 1); // remove the roll from the cart array
     }
 
+    // update the cart in localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
     // recalculate cart total
-    cartTotal()
     updateTotalPrice()
+
+    // print the entire stored cart to the console
+    console.log(localStorage.getItem('cart'));
 }
+
+// call loadCart on page load
+window.addEventListener('DOMContentLoaded', loadCart);
